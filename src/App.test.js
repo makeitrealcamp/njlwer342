@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { render } from 'enzyme';
+import { shallow } from 'enzyme';
 import App from './App';
 
 it('renders without crashing', () => {
@@ -8,23 +9,21 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
 });
 
-it('renders one h1 tag', () => {
+it('renders one ul tag', () => {
   const wrapper = render(<App />);
-  expect(wrapper.find('h1').length).toBe(1);
+  expect(wrapper.find('ul').length).toBe(1);
 });
 
-it('renders one p tag', () => {
+it('renders four li tags', () => {
   const wrapper = render(<App />);
-  expect(wrapper.find('p').length).toBe(1);
+  expect(wrapper.find('li').length).toBe(100);
 });
 
 it('rendered the h1 with correct text', () => {
-  const wrapper = render(<App />);
-  expect(wrapper.find('h1').text()).toBe('Mi primera aplicación')
+  const wrapper = shallow(<App />);
+  wrapper.find('li').forEach(function(node, i) {
+    expect(node.text()).toBe(String(i + 1));
+  });
 });
 
-it('rendered the p tag with correct text', () => {
-  const wrapper = render(<App />);
-  expect(wrapper.find('p').text()).toBe('Esta es mi primera aplicación en React, está padrísimo!')
-});
 
