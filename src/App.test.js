@@ -16,14 +16,14 @@ it('renders one ul tag', () => {
 
 it('renders four li tags', () => {
   const wrapper = render(<App />);
-  expect(wrapper.find('li').length).toBe(100);
+  expect(wrapper.find('li').length).toBe(4);
 });
 
-it('rendered the h1 with correct text', () => {
+it('rendered the li with correct text', () => {
   const wrapper = shallow(<App />);
+  const techs = ['Javascript', 'CSS', 'HTLM', 'React']
+  expect(wrapper.find('li').length).toBe(4);
   wrapper.find('li').forEach(function(node, i) {
-    expect(node.text()).toBe(String(i + 1));
+    expect(node.text()).toBe(techs[i]);
   });
 });
-
-
