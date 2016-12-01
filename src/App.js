@@ -11,30 +11,18 @@ class App extends Component {
   }
   render() {
     return (
-      <div style={styles.container}>
-        <h1 style={styles.title}>Las tecnologias del Front</h1>
-        <ul style={styles.list}>
-          {/* Tu codigo va aca */}
-        </ul>
+      <div class="wrapper">
+        <div class="list">
+          <h3>Por hacer:</h3>
+          <ul class="todo">
+            <li>Sacar la ropa</li>
+            <li>Hacer la cama</li>
+            <li>Leer un rato</li>
+          </ul>
+          <input type="text" id="new-task" placeholder="Ingresa una tarea y oprime Enter" />
+        </div>
       </div>
-    );
-  }
-}
-
-const styles = {
-  container: {
-    height: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  title: {
-    marginTop: '100px'
-  },
-  list: {
-    fontSize: '20px',
-    flexGrow: 6
+    )
   }
 }
 
