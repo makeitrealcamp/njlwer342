@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-/// Mostrar una lista en base a un arreglo
+/// Modifica el componente para que se puedan agregar tareas
 
 class App extends Component {
   render() {
