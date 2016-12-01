@@ -3,12 +3,6 @@ import React, { Component } from 'react';
 /// Mostrar una lista en base a un arreglo
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      list: ['Javascript', 'CSS', 'HTLM', 'React']
-    }
-  }
   render() {
     return (
       <div class="wrapper">
