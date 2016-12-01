@@ -5,10 +5,10 @@ import React, { Component } from 'react';
 class App extends Component {
   render() {
     return (
-      <div class="wrapper">
-        <div class="list">
+      <div className="wrapper">
+        <div className="list">
           <h3>Por hacer:</h3>
-          <ul class="todo">
+          <ul className="todo">
             <li>Sacar la ropa</li>
             <li>Hacer la cama</li>
             <li>Leer un rato</li>
