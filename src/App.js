@@ -13,11 +13,14 @@ class App extends Component {
             <li>Hacer la cama</li>
             <li>Leer un rato</li>
           </ul>
-          <input type="text" id="new-task" placeholder="Ingresa una tarea y oprime Enter" />
+           <form>
+             <input type="text" id="new-task" placeholder="Ingresa una tarea y oprime Enter" />
+           </form>
         </div>
       </div>
     )
   }
 }
+
 
 export default App;
