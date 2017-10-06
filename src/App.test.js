@@ -4,6 +4,7 @@ import { render } from 'enzyme';
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 import App from './App';
+import Setup from './Setup';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
