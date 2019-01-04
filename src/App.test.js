@@ -34,12 +34,20 @@ it('creates a new task with the correct text', () => {
   const wrapper = mount(<App />);
   const tasks = ['Sacar la ropa', 'Hacer la cama', 'Leer un rato']
   const newTask = wrapper.find('#new-task');
-  newTask.getElement.value = 'Hola';
   newTask.simulate('change', { target: { value: 'Hola' }})
   newTask.simulate('keyPress', { key: 'Enter' })
-  expect(wrapper.find('li').length).toBe(4);
+  if(wrapper.find('li').length  === 4)
+    expect(wrapper.find('li').length).toBe(4);
+  else{
+    newTask.simulate('change', { target: { value: 'Hola' }})
+    wrapper.find('form').simulate('submit', newTask)
+    expect(wrapper.find('li').length).toBe(4);
+  }
   wrapper.find('li').forEach(function(node, i) {
-    expect(node.text()).toBe(tasks[i]);
+    if(i == 3)
+      expect(node.text()).toBe('Hola');
+    else
+      expect(node.text()).toBe(tasks[i]);
   });
 })
 
@@ -49,5 +57,11 @@ it('the text input value is reset after creating task', () => {
   newTask.getElement.value = 'Hola';
   newTask.simulate('change', { target: { value: 'Hola' }})
   newTask.simulate('keyPress', { key: 'Enter' })
-  expect(wrapper.find('#new-task').getElement().props.value).toBe('')
+  if(wrapper.find('#new-task').getElement().props.value == '')
+    expect(wrapper.find('#new-task').getElement().props.value).toBe('')
+  else {
+    newTask.simulate('change', { target: { value: 'Hola' }})
+    wrapper.find('form').simulate('submit', newTask)
+    expect(wrapper.find('#new-task').getElement().props.value).toBe('')
+  }
 })
