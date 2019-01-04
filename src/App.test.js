@@ -38,7 +38,7 @@ it('creates a new task with the correct text', () => {
   newTask.simulate('keyPress', { key: 'Enter' })
   if(wrapper.find('li').length  === 4)
     expect(wrapper.find('li').length).toBe(4);
-  else{
+  else {
     newTask.simulate('change', { target: { value: 'Hola' }})
     wrapper.find('form').simulate('submit', newTask)
     expect(wrapper.find('li').length).toBe(4);
