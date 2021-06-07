@@ -35,7 +35,9 @@ it('creates a new task with the correct text', () => {
   const tasks = ['Sacar la ropa', 'Hacer la cama', 'Leer un rato']
   const newTask = wrapper.find('#new-task');
   newTask.simulate('change', { target: { value: 'Hola' }})
+  newTask.simulate('keyDown', { key: 'Enter' })
   newTask.simulate('keyPress', { key: 'Enter' })
+  newTask.simulate('keyUp', { key: 'Enter' })
   if(wrapper.find('li').length  === 4)
     expect(wrapper.find('li').length).toBe(4);
   else {
@@ -56,7 +58,9 @@ it('the text input value is reset after creating task', () => {
   const newTask = wrapper.find('#new-task');
   newTask.getElement.value = 'Hola';
   newTask.simulate('change', { target: { value: 'Hola' }})
+  newTask.simulate('keyDown', { key: 'Enter' })
   newTask.simulate('keyPress', { key: 'Enter' })
+  newTask.simulate('keyUp', { key: 'Enter' })
   if(wrapper.find('#new-task').getElement().props.value == '')
     expect(wrapper.find('#new-task').getElement().props.value).toBe('')
   else {
